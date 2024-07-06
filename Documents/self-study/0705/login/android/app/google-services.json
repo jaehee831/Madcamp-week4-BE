@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "891995057050",
+    "project_id": "madcamp-week2-91df9",
+    "storage_bucket": "madcamp-week2-91df9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891995057050:android:863cf71a748882a97c2823",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8DYmNGYpK5Q4VlMBuEZuee0ktxXh4N5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891995057050:android:b144befdf44e60717c2823",
+        "android_client_info": {
+          "package_name": "com.example.week2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8DYmNGYpK5Q4VlMBuEZuee0ktxXh4N5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

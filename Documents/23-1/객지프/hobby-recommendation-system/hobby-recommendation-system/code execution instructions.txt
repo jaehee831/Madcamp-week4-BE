@@ -1,0 +1,23 @@
+<Hobby sharing system Instruction>
+
+1. Choose your intersted hobby among the options.(cooking, drawing, singing)
+
+2. It's time to regidter yout name. If you type your name, the program stores it in --names.txt file and show the member list who registered the same hobby.
+
+3. If you choose one hobby, you can use utilities such as 
+1) Item Market
+2) MeetUp
+3) Register Hobby courses
+4) Mentorship session
+5) see event calendar
+6) exit -> you can go back to GroupMenu or exit program
+
+3-1) You can buy or sell items related to hobby. You can also see the item list and chech what items you have already. 
+
+3-2) this utility offers a Meetup schedule related to your hobby.
+
+3-3) You can register hobby courses. Choose a course that you want. One can register other hobbies' course.
+
+3-4) You can participate in mentorship session as a Mentee/Mento.
+
+3-5) This utility offers all schedule of mentorship, hobby course, and meet up.
