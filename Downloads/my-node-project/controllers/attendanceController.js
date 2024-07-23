@@ -30,3 +30,27 @@ exports.getMemberWorkTime = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+exports.recordAttendance = async (req, res) => {
+  const { userId, type, time } = req.body;
+
+  if (!['check_in_time', 'check_out_time', 'break_start_time', 'break_end_time'].includes(type)) {
+    return res.status(400).json({ error: 'Invalid type' });
+  }
+
+  let query;
+  if (type === 'check_in_time') {
+    query = 'INSERT INTO attendance (user_id, check_in_time) VALUES (?, ?) ON DUPLICATE KEY UPDATE check_in_time = VALUES(check_in_time)';
+  } else {
+    const column = type;
+    query = `UPDATE attendance SET ${column} = ? WHERE user_id = ? AND ${column} IS NULL`;
+  }
+
+  try {
+    const [result] = await req.db.query(query, type === 'check_in_time' ? [userId, time] : [time, userId]);
+    res.status(200).json({ message: `${type} recorded`, result });
+  } catch (error) {
+    console.error('Database query error: ', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};

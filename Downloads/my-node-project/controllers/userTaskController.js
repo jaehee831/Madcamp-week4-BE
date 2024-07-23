@@ -19,3 +19,32 @@ exports.addUserTask = async (req, res) => {
         res.status(500).send('Error inserting user tasks');
     }
 };
+
+
+exports.getUserFromTask = async (req, res) => {
+  console.log('Received request body:', req.body);
+  const { task_id } = req.body; // Use req.body to get task_id
+
+  // Log the received task_id to verify it's being passed correctly
+  console.log('Extracted task_id:', task_id);
+  if (!task_id) {
+    return res.status(400).json({ error: 'task_id is required' });
+  }
+
+  const query = 'SELECT user_id FROM user_task WHERE task_id = ?';
+  
+  try {
+    const db = req.db;
+    const [rows] = await db.query(query, [task_id]);
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'No user found for the specified task_id' });
+    }
+
+    const userIds = rows.map(row => row.user_id);
+    res.status(200).json(userIds);
+  } catch (error) {
+    console.error('Database query error: ', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};

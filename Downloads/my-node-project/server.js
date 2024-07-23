@@ -11,7 +11,8 @@ const storeRoutes = require('./routes/storeRoutes');
 const noticeRoutes = require('./routes/noticeRoutes');
 const userTaskRoutes = require('./routes/userTaskRoutes');
 const boardRoutes = require('./routes/boardRoutes');
-const postRoutes = require('./routes/postRoutes'); 
+const postRoutes = require('./routes/postRoutes');
+const userWageRoutes = require('./routes/userWageRoutes'); 
 const initializeDatabase = require('./config/db');
 
 const app = express();
@@ -36,6 +37,7 @@ initializeDatabase().then((db) => {
   app.use('/', userTaskRoutes); 
   app.use('/', boardRoutes);
   app.use('/', postRoutes);
+  app.use('/', userWageRoutes);
 
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

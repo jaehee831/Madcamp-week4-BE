@@ -49,8 +49,9 @@ exports.getTasks = async (req, res) => {
       return res.status(400).json({ error: 'store_id is required' });
   }
 
-  const query = 'SELECT task_name, description, start_time, end_time FROM tasks WHERE store_id = ?';
+  const query = 'SELECT idtasks, task_name, description, start_time, end_time FROM tasks WHERE store_id = ?';
   try {
+      const db = req.db; 
       const [rows] = await db.query(query, [store_id]);
       if (rows.length === 0) {
           res.json({ message: 'No tasks found for the specified store_id' });
