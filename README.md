@@ -1,2 +1,1 @@
-# Madcamp-week4-BE
-몰입캠프 4주차 페이지입니다. 
+frontend repo link : https://github.com/jaehee831/gighub-fe
